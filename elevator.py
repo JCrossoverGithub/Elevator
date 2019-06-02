@@ -4,43 +4,31 @@
 import time
 import os
 
-#  Floors = list of all the floor names
-#  Current = what floor the elevator is on
+#  Floors = number of floors
+#  floor_current = what floor the elevator is on
 
 print(' ')
 
+elevator = True
 floors = 10
 
-
-print(' ')
-
-
-#floorcurrent = open("floornum.txt", "w+")
-
-#print(floors[current])
-
-
-#  Create floor number holder file if doesn't exist
+#  Create floor number holder text file if  it doesn't exist
 #  Default floor set to 0 (lobby)
-
 if not os.path.exists('floornum.txt'):
     tt = open("floornum.txt", "w")
     tt.write("0")
     tt.close()
 
 
-#  Get current floor
+#  Get current floor from the text file
 floortemp = open("floornum.txt", "r")
-
 floor_current = floortemp.read()
 floor_current = int(floor_current) 
-
 floortemp.close()
 
-print('Current Floor: ' + str(floor_current))
+print('Current Floor: ' + str(floor_current))  # Let rider know which floor they're on
 
 floor_want = int(input("Select the floor: "))  # User input to select their floor
-
 
 def going_up():
     
@@ -55,8 +43,6 @@ def going_up():
             time.sleep(1.5)
             print('Floor ' + str(floor_now) + '..')
 
-        
-    
 def going_down():
     
     floor_now = floor_current
@@ -71,13 +57,12 @@ def going_down():
             print('Floor ' + str(floor_now) + '..')
 
 
-elevator = True
 def main():
     
     while elevator == True:
-
         
         if floor_want > floors or floor_want < 0:
+            print(' ')
             print("There is no floor " + str(floor_want) + "...")
             break
         
@@ -101,8 +86,6 @@ def main():
         floortemp2.close()
         
         break
-
-
 
 main()
 
