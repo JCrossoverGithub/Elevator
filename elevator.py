@@ -8,10 +8,10 @@ import os
 #  Current = what floor the elevator is on
 
 print(' ')
-floors = ['Lobby (0)','One','Two','Three']  # PRINT FLOOR NAMES AS "FLOOR ONE" "FLOOR TWO" "FLOOR 3" ETC
-print('Floors:' + str(floors))
-#image = Image.open('image.jpg')
-#image.show()
+
+floors = 10
+
+
 print(' ')
 
 
@@ -28,16 +28,12 @@ if not os.path.exists('floornum.txt'):
     tt.write("0")
     tt.close()
 
-#floor_file = open("floornum.txt", "w+")
-#floor_file.close()
-
-
 
 #  Get current floor
 floortemp = open("floornum.txt", "r")
 
 floor_current = floortemp.read()
-floor_current = int(floor_current)
+floor_current = int(floor_current) 
 
 floortemp.close()
 
@@ -77,10 +73,13 @@ def going_down():
 
 elevator = True
 def main():
+    
     while elevator == True:
-#        floorname = floors[0]
+
         
-        floorcount = len(floors) - 1  # How many floors there are
+        if floor_want > floors or floor_want < 0:
+            print("There is no floor " + str(floor_want) + "...")
+            break
         
         if (floor_want) > (floor_current):
             print(' ')
@@ -96,6 +95,7 @@ def main():
             print(' ')
             print('Floor ' + str(floor_want))
         
+            
         floortemp2 = open("floornum.txt", "w")
         floortemp2.write(str(floor_want))
         floortemp2.close()
