@@ -6,6 +6,7 @@ import os
 
 #  Floors = number of floors
 #  floor_current = what floor the elevator is on
+#  floor_want = The floor the rider wishes to go to
 
 print(' ')
 
