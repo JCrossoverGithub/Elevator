@@ -26,9 +26,11 @@ floor_current = floortemp.read()
 floor_current = int(floor_current) 
 floortemp.close()
 
+print('There are ' + str(floors) + ' floors')
+
 print('Current Floor: ' + str(floor_current))  # Let rider know which floor they're on
 
-floor_want = int(input("Select the floor: "))  # User input to select their floor
+floor_want = int(input("Type a floor number: "))  # User input to select their floor
 
 def going_up():
     
