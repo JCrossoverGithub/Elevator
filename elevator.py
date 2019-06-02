@@ -2,6 +2,7 @@
 # Elevator.py               Simulates an elevator
 # =============================================================================
 import time
+import os
 
 #  Floors = list of all the floor names
 #  Current = what floor the elevator is on
@@ -22,8 +23,10 @@ print(' ')
 #  Create floor number holder file if doesn't exist
 #  Default floor set to 0 (lobby)
 
-#if not os.path.exists():
-    
+if not os.path.exists('floornum.txt'):
+    tt = open("floornum.txt", "w")
+    tt.write("0")
+    tt.close()
 
 #floor_file = open("floornum.txt", "w+")
 #floor_file.close()
@@ -46,16 +49,14 @@ floor_want = int(input("Select the floor: "))  # User input to select their floo
 def going_up():
     
     floor_now = floor_current
-    velocity = 2.5
 
     while floor_now < floor_want:
         floor_now += 1
         if floor_now == floor_want:
-            time.sleep(2.5)
+            time.sleep(1.5)
             print('Floor ' + str(floor_now))
         else:
-            #velocity -= 0.2
-            time.sleep(velocity)
+            time.sleep(1.5)
             print('Floor ' + str(floor_now) + '..')
 
         
@@ -63,16 +64,14 @@ def going_up():
 def going_down():
     
     floor_now = floor_current
-    velocity = 2.5
 
     while floor_now > floor_want:
         floor_now -= 1
         if floor_now == floor_want:
-            time.sleep(2.5)
+            time.sleep(1.5)
             print('Floor ' + str(floor_now))
-        else:
-            #velocity -= 0.2            
-            time.sleep(velocity)
+        else:          
+            time.sleep(1.5)
             print('Floor ' + str(floor_now) + '..')
 
 
