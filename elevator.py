@@ -25,8 +25,6 @@ print(' ')
 #if not os.path.exists():
     
 
-
-
 #floor_file = open("floornum.txt", "w+")
 #floor_file.close()
 
@@ -48,12 +46,12 @@ floor_want = int(input("Select the floor: "))  # User input to select their floo
 def going_up():
     
     floor_now = floor_current
-    velocity = 5
+    velocity = 2.5
 
     while floor_now < floor_want:
         floor_now += 1
         if floor_now == floor_want:
-            time.sleep(5)
+            time.sleep(2.5)
             print('Floor ' + str(floor_now))
         else:
             #velocity -= 0.2
@@ -65,12 +63,12 @@ def going_up():
 def going_down():
     
     floor_now = floor_current
-    velocity = 5
+    velocity = 2.5
 
     while floor_now > floor_want:
         floor_now -= 1
         if floor_now == floor_want:
-            time.sleep(5)
+            time.sleep(2.5)
             print('Floor ' + str(floor_now))
         else:
             #velocity -= 0.2            
